@@ -1,0 +1,9 @@
+@import '../../styles/settings.scss';
+
+.time {
+  font-size: 45px;
+  padding: $base-size;
+  margin: 0 $base-size $base-size $base-size;
+  text-align: center;
+  color: $color-light;
+}

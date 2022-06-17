@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import settings from '../../settings';
+import styles from './Timer.module.scss';
 import Button from '../Button/Button';
 import FormattedTime from '../FormattedTime/FormattedTime';
 const Timer = () => {
+  // Initial states
   const [time, setTime] = useState(0);
-  const reset = () => {
-    setTime(0);
-  };
-
   const [timer, setTimer] = useState(0);
-  const [timerFlag, setTimerFlag] = useState(false);
+  const [timerFlag, setTimerFlag] = useState(false); // prevent dual start
+
+  // Functions
   const start = () => {
     if (!timerFlag) {
       setTimer(
@@ -24,6 +24,9 @@ const Timer = () => {
     clearInterval(timer);
     setTimerFlag(false);
   };
+  const reset = () => {
+    setTime(0);
+  };
   useEffect(() => {
     return () => {
       if (timer) stop();
@@ -31,11 +34,13 @@ const Timer = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.timer}>
       <FormattedTime time={time} />
-      <Button text="Start" handler={start}></Button>
-      <Button text="Stop" handler={stop}></Button>
-      <Button text="Reset" handler={reset}></Button>
+      <div>
+        <Button text="Start" handler={start}></Button>
+        <Button text="Stop" handler={stop}></Button>
+        <Button text="Reset" handler={reset}></Button>
+      </div>
     </div>
   );
 };

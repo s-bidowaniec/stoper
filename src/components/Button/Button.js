@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
-
+import styles from './Button.module.scss';
 const Button = (props) => {
-  return <button onClick={props.handler}>{props.text}</button>;
+  return (
+    <button className={styles.button} onClick={props.handler}>
+      {props.text}
+    </button>
+  );
 };
 export default Button;
 

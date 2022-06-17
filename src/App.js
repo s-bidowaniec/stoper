@@ -1,11 +1,11 @@
+import PageWrapper from './components/PageWrapper/PageWrapper';
 import Timer from './components/Timer/Timer';
+
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Timer />
-      </header>
-    </div>
+    <PageWrapper>
+      <Timer />
+    </PageWrapper>
   );
 };
 
